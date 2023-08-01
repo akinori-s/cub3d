@@ -1,0 +1,4 @@
+cub3D
+*.a
+*.o
+minilibx-linux/test/mlx-test
