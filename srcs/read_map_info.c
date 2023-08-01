@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:03:58 by asasada           #+#    #+#             */
-/*   Updated: 2023/07/30 17:02:19 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/01 22:38:09 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static bool	copy_mapinfo(t_map *map, char *line)
 		set_map_info(&map->c_color, line, "C");
 	else if (is_chara(line[0]) || is_news(line[0]))
 		return (true);
+	else if (line[0] != '\n')
+		error_exit("Invalid map info.");
 	return (false);
 }
 
