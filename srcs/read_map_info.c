@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:03:58 by asasada           #+#    #+#             */
-/*   Updated: 2023/08/01 22:38:09 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 00:24:57 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,20 @@ static void	set_map_info(char **info_ptr, char *line, char *specifier)
 
 static bool	copy_mapinfo(t_map *map, char *line)
 {
-	if (!ft_strncmp(line, "NO", 2))
+	if (!ft_strncmp(line, "NO ", 3))
 		set_map_info(&map->north_tex.path, line, "NO");
-	else if (!ft_strncmp(line, "SO", 2))
+	else if (!ft_strncmp(line, "SO ", 3))
 		set_map_info(&map->south_tex.path, line, "SO");
-	else if (!ft_strncmp(line, "WE", 2))
+	else if (!ft_strncmp(line, "WE ", 3))
 		set_map_info(&map->west_tex.path, line, "WE");
-	else if (!ft_strncmp(line, "EA", 2))
+	else if (!ft_strncmp(line, "EA ", 3))
 		set_map_info(&map->east_tex.path, line, "EA");
-	else if (!ft_strncmp(line, "F", 1))
+	else if (!ft_strncmp(line, "F ", 2))
 		set_map_info(&map->f_color, line, "F");
-	else if (!ft_strncmp(line, "C", 1))
+	else if (!ft_strncmp(line, "C ", 2))
 		set_map_info(&map->c_color, line, "C");
-	else if (is_chara(line[0]) || is_news(line[0]))
+	else if ((is_char_iter(line, is_chara) || is_char_iter(line, is_news)) && \
+		line[0] != '\n')
 		return (true);
 	else if (line[0] != '\n')
 		error_exit("Invalid map info.");

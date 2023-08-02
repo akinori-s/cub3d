@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:03:59 by asasada           #+#    #+#             */
-/*   Updated: 2023/07/30 17:02:23 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/02 23:50:31 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	read_map(t_game *game, char *next_line, int fd)
 	flattened = NULL;
 	while (next_line != NULL)
 	{
+		if (next_line[0] == '\n')
+			error_exit("Newline in map info");
 		tmp = flattened;
 		flattened = ft_strjoin(flattened, next_line);
 		free(tmp);
@@ -69,10 +71,7 @@ int	read_map(t_game *game, char *next_line, int fd)
 	game->map.map2d = ft_split(flattened, '\n');
 	free(flattened);
 	if (game->map.map2d == NULL)
-	{
-		free_2darray(game->map.map2d);
 		error_exit("Malloc failed at split.");
-	}
 	game->map.height = ft_2darray_len(game->map.map2d);
 	game->map.width = max_row_width(game->map.map2d);
 	pad_map(&game->map);

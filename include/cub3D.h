@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:30:23 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/07/30 15:34:20 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 00:01:55 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,7 @@ bool		check_texfile(char *file);
 bool		is_news(char c);
 bool		is_chara(char c);
 bool		is_digit_str(char *str);
+bool		is_char_iter(char *str, bool (*f)(char));
 
 // is_walled.c
 bool		is_walled(t_map *map, int x, int y);

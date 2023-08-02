@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 14:23:36 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/07/30 15:56:51 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 00:16:19 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,20 @@ bool	is_digit_str(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+bool	is_char_iter(char *str, bool (*f)(char))
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!f(str[i]) && str[i] != '\n')
 			return (false);
 		i++;
 	}
