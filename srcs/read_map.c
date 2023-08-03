@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:03:59 by asasada           #+#    #+#             */
-/*   Updated: 2023/08/02 23:50:31 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 22:01:55 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void	pad_map(t_map *map)
 
 	i = 0;
 	pad = ft_calloc(map->width + 1, sizeof(char));
+	if (pad == NULL)
+		error_exit("Malloc failed at calloc.");
 	while (map->map2d[i] != NULL)
 	{
 		ft_bzero(pad, map->width);

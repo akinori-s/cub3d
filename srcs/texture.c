@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 12:45:31 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/07/30 16:06:58 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 22:08:53 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ uint32_t	convert_color(char *color)
 	if (rgb == NULL)
 		error_exit("Failed to split color.");
 	while (rgb[i] != NULL)
-		if (i++ >= 3)
-			error_exit("Too many colors.");
+		i++;
+	if (i != 3)
+		error_exit("Invalid color.");
 	if (!is_digit_str(rgb[0]) || !is_digit_str(rgb[1]) || !is_digit_str(rgb[2])
 		|| ft_strlen(rgb[0]) > 3 || ft_strlen(rgb[1]) > 3
 		|| ft_strlen(rgb[2]) > 3)
