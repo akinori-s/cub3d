@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 16:15:01 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/07/30 16:47:01 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 23:15:17 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	set_game(t_game *game, char *file)
 	check_map(&game->map, &game->player);
 	load_texture(game, &game->map);
 	read_background_color(&game->map, &game->wall);
-	set_screen(game, &game->img);
+	set_screen(game, &game->img, &game->mini_img);
 }
 
 void	get_gameinfo(char **map2d, t_map *map, t_player *player)

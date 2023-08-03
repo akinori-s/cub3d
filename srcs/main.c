@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:38:22 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/07/26 17:19:46 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 23:18:37 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char **argv)
 int	loop_game(t_game *game)
 {
 	draw_wall(game);
+	draw_minimap(&game->map, &game->player, &game->mini_img);
 	move_player(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.image, 0, 0);
 	return (0);

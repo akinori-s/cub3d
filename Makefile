@@ -6,7 +6,7 @@
 #    By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 13:14:55 by shimakaori        #+#    #+#              #
-#    Updated: 2023/07/30 15:58:17 by asasada          ###   ########.fr        #
+#    Updated: 2023/08/03 23:18:25 by asasada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS			= main.c         \
 				  bool.c         \
 				  read_map.c	 \
 				  read_map_info.c\
+				  draw_minimap.c \
 				  test_print.c   
 OBJ_DIR			= objs
 OBJS			= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))

@@ -6,16 +6,20 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:26:15 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/07/30 14:20:26 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 23:15:08 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	set_screen(t_game *game, t_img *img)
+void	set_screen(t_game *game, t_img *img, t_img *mini_img)
 {
 	img->image = mlx_new_image(game->mlx, SCREENWIDTH, SCREENHEIGHT);
 	if (img->image == NULL)
+		error_exit("Failed new image in set_screen");
+	mini_img = mlx_new_image(game->mlx, GRID_SIZE * MINIMAP_WIDTH, \
+		GRID_SIZE* MINIMAP_WIDTH);
+	if (mini_img == NULL)
 		error_exit("Failed new image in set_screen");
 	img->buffer = mlx_get_data_addr(img->image, &img->pixel_bits, \
 		&img->line_bytes, &img->endian);
