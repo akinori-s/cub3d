@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:30:23 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/08/04 22:57:16 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/04 23:26:18 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@
 //player
 # define PLAYER_MOVE_PX	0.023
 
-#define GRID_SIZE 10
-#define PLAYER_SIZE 7
-#define RAY_SIZE 13
-#define MINIMAP_WIDTH 15
-#define MINIMAP_HEIGHT 13
-#define MINIMAP_WALL_COLOR 0x2a8041
-#define MINIMAP_EMPTY_COLOR 0xebfcf0
-#define MINIMAP_PLAYER_COLOR 0xFF0000
-#define MINIMAP_RAY_COLOR 0x0000FF
+# define GRID_SIZE 10
+# define PLAYER_SIZE 7
+# define RAY_SIZE 13
+# define MINIMAP_W 15
+# define MINIMAP_H 13
+# define MINIMAP_WALL_COLOR 0x2a8041
+# define MINIMAP_EMPTY_COLOR 0xebfcf0
+# define MINIMAP_PLAYER_COLOR 0xFF0000
+# define MINIMAP_RAY_COLOR 0x0000FF
 
 typedef struct s_dvector
 {

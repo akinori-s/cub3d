@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:26:15 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/08/03 23:26:44 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/04 23:14:41 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	set_screen(t_game *game, t_img *img, t_img *mini_img)
 {
 	img->image = mlx_new_image(game->mlx, SCREENWIDTH, SCREENHEIGHT);
-	mini_img->image = mlx_new_image(game->mlx, GRID_SIZE * MINIMAP_WIDTH, \
-		GRID_SIZE* MINIMAP_WIDTH);
+	mini_img->image = mlx_new_image(game->mlx, GRID_SIZE * MINIMAP_W, \
+		GRID_SIZE * MINIMAP_W);
 	if (img->image == NULL || mini_img->image == NULL)
 		error_exit("Failed new image in set_screen");
 	img->buffer = mlx_get_data_addr(img->image, &img->pixel_bits, \
@@ -25,7 +25,6 @@ void	set_screen(t_game *game, t_img *img, t_img *mini_img)
 		&mini_img->pixel_bits, &mini_img->line_bytes, &mini_img->endian);
 	if (img->buffer == NULL || mini_img->buffer == NULL)
 		error_exit("Failed to get data addr in set_screen");
-	
 	img->width = SCREENWIDTH;
 	img->height = SCREENHEIGHT;
 }
