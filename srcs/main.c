@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:38:22 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/08/03 23:32:37 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/04 23:25:38 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	loop_game(t_game *game)
 	move_player(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.image, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->win, game->mini_img.image, \
-		SCREENWIDTH / 2 - (MINIMAP_WIDTH * GRID_SIZE / 2), \
-		SCREENHEIGHT - (MINIMAP_HEIGHT * GRID_SIZE));
+		SCREENWIDTH / 2 - (MINIMAP_W * GRID_SIZE / 2), \
+		SCREENHEIGHT - (MINIMAP_H * GRID_SIZE));
 	return (0);
 }
 
@@ -80,6 +80,7 @@ int	close_window(t_game *game)
 {
 	free_map(&game->map);
 	mlx_destroy_image(game->mlx, game->img.image);
+	mlx_destroy_image(game->mlx, game->mini_img.image);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(EXIT_SUCCESS);
 }
