@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:38:22 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/08/03 23:18:37 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/03 23:32:37 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ int	loop_game(t_game *game)
 	draw_minimap(&game->map, &game->player, &game->mini_img);
 	move_player(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.image, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->mini_img.image, \
+		SCREENWIDTH / 2 - (MINIMAP_WIDTH * GRID_SIZE / 2), \
+		SCREENHEIGHT - (MINIMAP_HEIGHT * GRID_SIZE));
 	return (0);
 }
 
