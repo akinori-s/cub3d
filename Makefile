@@ -6,7 +6,7 @@
 #    By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 13:14:55 by shimakaori        #+#    #+#              #
-#    Updated: 2023/08/05 00:09:08 by asasada          ###   ########.fr        #
+#    Updated: 2023/08/05 19:56:26 by asasada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,8 +103,8 @@ sanitize: CFLAGS += -g -fsanitize=address
 sanitize: re
 
 norm:
-	norminette $(VPATH) $(BPATH) include
+	norminette $(VPATH) $(BPATH) include bonus_include
 normall:
-	norminette $(VPATH) $(BPATH) include $(LIBFTPRINTF_DIR) $(GNL_DIR)
+	norminette $(VPATH) $(BPATH) include bonus_include $(LIBFTPRINTF_DIR) $(GNL_DIR)
 
 .PHONY: all clean fclean re bonus .c.o 
