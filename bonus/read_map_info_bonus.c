@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map_info.c                                    :+:      :+:    :+:   */
+/*   read_map_info_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 15:03:58 by asasada           #+#    #+#             */
-/*   Updated: 2023/08/03 00:24:57 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/04 23:58:19 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3D_bonus.h"
 
 static void	set_map_info(char **info_ptr, char *line, char *specifier)
 {

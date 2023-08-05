@@ -6,7 +6,7 @@
 #    By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 13:14:55 by shimakaori        #+#    #+#              #
-#    Updated: 2023/07/30 15:58:17 by asasada          ###   ########.fr        #
+#    Updated: 2023/08/05 00:09:08 by asasada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,24 @@ SRCS			= main.c         \
 OBJ_DIR			= objs
 OBJS			= $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
 
+BINCLUDE			= -I bonus_include -I $(LIBFTPRINTF_DIR)/include -I $(GNL_DIR)/include -I $(MINILIBX_DIR) -I$(X11_DIR)/include
+BPATH			= bonus
+BSRCS			= main_bonus.c         \
+				  init_game_bonus.c    \
+				  set_game_bonus.c     \
+				  is_walled_bonus.c    \
+				  texture_bonus.c      \
+				  get_wall_bonus.c     \
+				  draw_wall_bonus.c    \
+				  move_player_bonus.c  \
+				  utils_bonus.c        \
+				  bool_bonus.c         \
+				  read_map_bonus.c	 \
+				  read_map_info_bonus.c\
+				  draw_minimap_bonus.c
+BOBJ_DIR		= bonus_objs
+BOBJS			= $(addprefix $(BOBJ_DIR)/, $(BSRCS:%.c=%.o))
+
 UNAME = $(shell uname)
 ifeq ($(UNAME), Darwin)
 	LIBS_DIR 	+= -L/usr/X11R6/lib
@@ -57,8 +75,13 @@ $(OBJ_DIR)/%.o: %.c
 	@mkdir -p $$(dirname $@)
 	$(CC) $(INCLUDE) -c $< -o $@
 
+$(BOBJ_DIR)/%.o: $(BPATH)/%.c
+	@mkdir -p $$(dirname $@)
+	$(CC) $(BINCLUDE) -c $< -o $@
+
 clean:
 	rm -rf $(OBJ_DIR)
+	rm -rf $(BOBJ_DIR)
 	$(MAKE) clean -C $(LIBFTPRINTF_DIR)
 	$(MAKE) clean -C $(GNL_DIR)
 	$(MAKE) clean -C $(MINILIBX_DIR)
@@ -70,14 +93,18 @@ fclean: clean
 
 re: fclean all
 
-bonus: all
+bonus: $(BOBJS)
+	$(MAKE) -C $(LIBFTPRINTF_DIR)
+	$(MAKE) -C $(GNL_DIR)
+	$(MAKE) -C $(MINILIBX_DIR)
+	$(CC) $(CFLAGS) $^ $(LIBS_DIR) $(LIBS) -o $(NAME)
 
 sanitize: CFLAGS += -g -fsanitize=address
 sanitize: re
 
 norm:
-	norminette $(VPATH)
+	norminette $(VPATH) $(BPATH) include
 normall:
-	norminette $(VPATH) $(LIBFTPRINTF_DIR) $(GNL_DIR)
+	norminette $(VPATH) $(BPATH) include $(LIBFTPRINTF_DIR) $(GNL_DIR)
 
 .PHONY: all clean fclean re bonus .c.o 

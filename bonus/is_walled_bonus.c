@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_walled.c                                        :+:      :+:    :+:   */
+/*   is_walled_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 15:03:46 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/08/05 15:29:24 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/04 23:58:08 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3D_bonus.h"
 
 bool	flood_check(t_map *map, char **copy, int x, int y);
 
@@ -21,6 +21,7 @@ bool	is_walled(t_map *map, int x, int y)
 	bool	flag;
 
 	i = 0;
+	flag = false;
 	copy = malloc(sizeof(char *) * map->height);
 	if (!copy)
 		error_exit("malloc failed");

@@ -6,7 +6,7 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:30:23 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/08/05 00:20:24 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/04 23:26:18 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,16 @@
 
 //player
 # define PLAYER_MOVE_PX	0.023
+
+# define GRID_SIZE 10
+# define PLAYER_SIZE 7
+# define RAY_SIZE 13
+# define MINIMAP_W 15
+# define MINIMAP_H 13
+# define MINIMAP_WALL_COLOR 0x2a8041
+# define MINIMAP_EMPTY_COLOR 0xebfcf0
+# define MINIMAP_PLAYER_COLOR 0xFF0000
+# define MINIMAP_RAY_COLOR 0x0000FF
 
 typedef struct s_dvector
 {
@@ -126,6 +136,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	t_img		img;
+	t_img		mini_img;
 	t_map		map;
 	t_player	player;
 	t_ray		ray;
@@ -157,7 +168,7 @@ void		get_wallinfo(t_wall *wall, t_ray *ray, t_player *player);
 void		move_player(t_game *game);
 
 // utils.c
-void		set_screen(t_game *game, t_img *img);
+void		set_screen(t_game *game, t_img *img, t_img *mini_img);
 void		free_map(t_map *map);
 void		free_2darray(char **array);
 size_t		ft_2darray_len(char **array);
@@ -178,6 +189,8 @@ int			read_map(t_game *game, char *next_line, int fd);
 
 // read_map_info.c
 char		*read_map_info(int fd, t_game *game);
+
+void		draw_minimap(t_map *map, t_player *player, t_img *img);
 
 //test_print.c
 void		print_map(t_map *map);
