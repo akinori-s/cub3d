@@ -6,14 +6,13 @@
 /*   By: asasada <asasada@student.42tokyo.j>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 15:03:46 by shimakaori        #+#    #+#             */
-/*   Updated: 2023/08/05 14:21:29 by asasada          ###   ########.fr       */
+/*   Updated: 2023/08/05 15:29:24 by asasada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
 bool	flood_check(t_map *map, char **copy, int x, int y);
-bool	is_surrounded_by_wall(t_map *map);
 
 bool	is_walled(t_map *map, int x, int y)
 {
@@ -22,9 +21,6 @@ bool	is_walled(t_map *map, int x, int y)
 	bool	flag;
 
 	i = 0;
-	flag = false;
-	if (!is_surrounded_by_wall(map))
-		return (false);
 	copy = malloc(sizeof(char *) * map->height);
 	if (!copy)
 		error_exit("malloc failed");
@@ -41,34 +37,6 @@ bool	is_walled(t_map *map, int x, int y)
 		free(copy[i++]);
 	free(copy);
 	return (flag);
-}
-
-bool	is_surrounded_by_wall(t_map *map)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	while (i < map->height)
-	{
-		j = 0;
-		while (map->map2d[i][j] != '\0')
-		{
-			if (i == 0 || i == map->height - 1)
-			{
-				if (map->map2d[i][j] != '1' && map->map2d[i][j] != ' ')
-					return (false);
-			}
-			else if (j == 0 || j == ft_strlen(map->map2d[i]) - 1)
-			{
-				if (map->map2d[i][j] != '1' && map->map2d[i][j] != ' ')
-					return (false);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (true);
 }
 
 bool	flood_check(t_map *map, char **copy, int x, int y)
