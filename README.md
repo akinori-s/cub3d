@@ -1,5 +1,5 @@
 # cub3d
-3D raycasting game inspired by the legendary [Wolfenstein.](3D raycasting game inspired by the legendary Wolfenstein.)
+3D raycasting game inspired by the legendary [Wolfenstein.](https://en.wikipedia.org/wiki/Wolfenstein)
 
 ![App screenshot](https://github.com/akinori-s/cub3d/blob/main/docs/cub3d_wolfenstein_map.gif?raw=true)
 
