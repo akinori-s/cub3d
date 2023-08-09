@@ -17,3 +17,9 @@ make
 ```bash
 ./cub3D cubfiles/wolfenstein.cub
 ```
+
+## Resources used
+
+Special thanks to javidx9 and his [video](https://youtu.be/NbSee-XM7WA) on ray casting.
+
+[Lode's Computer Graphics Tutorial](https://lodev.org/cgtutor/raycasting.html) was also really helpful for this project.
